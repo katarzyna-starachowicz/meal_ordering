@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+zosia:
+  provider: "twitter"
+  uid: 12345
+  name: "Zofia"
+
+bartek:
+  provider: "twitter"
+  uid: 67890
+  name: "Batosz"
