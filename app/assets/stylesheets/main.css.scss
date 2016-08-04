@@ -1,0 +1,37 @@
+$base-font-size: 18px;
+$base-line-height: 30px;
+@include establish-baseline;
+
+$bg-color: #ffc200;
+$text-color: #363028;
+$complementary-color: #006db2;
+body {
+  background-color: $bg-color;
+  font-family: 'Lato', sans-serif;
+  color: $text-color;
+  a {
+    text-decoration : none;
+    color: lighten($text-color, 25%);
+    &:hover { color: $complementary-color; }
+  }
+
+  .container {
+    text-align: left;
+    width: 600px;
+    margin: 0 auto;
+    .log_in { text-align: center; }
+    ul.user_logging {
+      li {
+        display: inline;
+        @include adjust-font-size-to(14px);
+      }
+    }
+    h1 {
+    text-align: center;
+    @include adjust-font-size-to(40px);
+    @include leader(2, 40px);
+    @include trailer(1, 40px);
+    }
+  }
+}
+
