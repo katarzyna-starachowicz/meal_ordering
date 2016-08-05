@@ -6,5 +6,5 @@ class Order < ActiveRecord::Base
 
   validates :restaurant, presence: true
   validates :status, inclusion: { in: %w(booking finalized ordered delivered) }
-  validates :restaurant_link, format: { with: /\A#{URI::regexp(['http', 'https'])}\z/ }
+  validates :restaurant_link, format: { with: /\A#{URI.regexp(%w(http https))}\z/ }
 end

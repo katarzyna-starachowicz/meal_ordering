@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use sqlite3 as the database for Active Record
@@ -17,7 +17,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'rubocop', '~> 0.37.2'
+gem 'rubocop', require: false
+gem 'rubocop-rspec', require: false
 
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 

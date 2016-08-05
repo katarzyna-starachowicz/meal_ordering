@@ -6,8 +6,7 @@ require 'capybara/rails'
 OmniAuth.config.test_mode = true
 omniauth_hash = { 'provider' => 'github',
                   'uid' => '12345',
-                  'info' => { 'name' => 'Zofia' }
-                }
+                  'info' => { 'name' => 'Zofia' } }
 
 OmniAuth.config.add_mock(:github, omniauth_hash)
 
