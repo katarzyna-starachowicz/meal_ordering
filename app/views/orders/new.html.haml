@@ -3,13 +3,13 @@
 = render partial: 'shared/error_messages', locals: {item: @order}
 
 = form_for(@order) do |f|
-  Restaurant name:
+  = f.label :restaurant_name
   = f.text_field :restaurant_name
   %br
-  Restaurant's online address:
+  = f.label :restaurant_link
   = f.url_field :restaurant_link
   %br
-  Status:
+  f.label :status
   = f.select(:status, options_for_select(Order::STATUS), selected: 'booking')
   %br
   = f.submit 'Create!'
