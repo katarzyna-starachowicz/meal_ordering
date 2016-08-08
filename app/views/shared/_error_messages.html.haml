@@ -1,0 +1,7 @@
+- if item.errors.any?
+  .error_messages
+    %h2 The form contains #{pluralize(item.errors.count, 'error')}
+    %ul
+    - item.errors.full_messages.each do |msg|
+      %li #{msg}
+

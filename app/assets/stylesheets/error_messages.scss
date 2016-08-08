@@ -1,0 +1,7 @@
+.error_messages {
+  @include adjust-font-size-to(12px);
+  @include rhythm-borders(1px, 1, 12px);
+  background-color: lighten($bg-color, 25%);
+  h2 { text-align: left; }
+  @include trailer(2, 12px);
+}

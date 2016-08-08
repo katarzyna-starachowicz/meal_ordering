@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'sessions#new'
-  resources :orders, only: :index
+  resources :orders
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/logout' => 'sessions#destroy', as: :logout
 

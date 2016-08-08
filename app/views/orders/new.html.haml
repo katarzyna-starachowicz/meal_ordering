@@ -1,0 +1,17 @@
+%h2 Create a new order
+
+= render partial: 'shared/error_messages', locals: {item: @order}
+
+= form_for(@order) do |f|
+  Restaurant name:
+  = f.text_field :restaurant_name
+  %br
+  Restaurant's online address:
+  = f.url_field :restaurant_link
+  %br
+  Status:
+  = f.select(:status, options_for_select(Order::STATUS), selected: 'booking')
+  %br
+  = f.submit 'Create!'
+
+= link_to 'Back to the main page', orders_path

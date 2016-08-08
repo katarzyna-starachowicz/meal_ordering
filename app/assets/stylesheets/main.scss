@@ -32,6 +32,7 @@ body {
     @include leader(2, 40px);
     @include trailer(1, 40px);
     }
+    h2 { text-align: left; }
   }
 }
 
