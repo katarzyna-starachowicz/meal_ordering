@@ -2,7 +2,8 @@ class OrdersController < ApplicationController
   before_action :authorize!
 
   def index
-    @orders = Order.all
+    @active_orders  = OrderQuery.new.active
+    @history_orders = OrderQuery.new.history
   end
 
   def new
