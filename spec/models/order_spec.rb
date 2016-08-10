@@ -25,4 +25,36 @@ describe Order do
       expect(order.deleted_at).to eq nil
     end
   end
+
+  describe 'scope' do
+    before do
+      described_class.create!(restaurant_link: 'http://kfc.pl/',  restaurant_name: 'kfc',  status: 'booking')
+      described_class.create!(restaurant_link: 'http://soup.pl/', restaurant_name: 'soup', status: 'ordered')
+      described_class.create!(
+        restaurant_link: 'http://mcd.pl/',
+        restaurant_name: 'mcd',
+        status:          'booking',
+        deleted_at:      Time.now
+      )
+      described_class.create!(
+        restaurant_link: 'http://egg.pl/',
+        restaurant_name: 'egg',
+        status:          'ordered',
+        deleted_at:      Time.now
+      )
+    end
+
+    context 'active scope' do
+      it 'returns not deleted orders with booking staus' do
+        expect(described_class.active.map(&:restaurant_name)).to eq(['kfc'])
+      end
+    end
+
+    context 'history scope' do
+      it 'returns all deleted orders and all orders with status other than booking' do
+        expect(described_class.history.map(&:restaurant_name)).
+          to match_array(%w(mcd soup egg))
+      end
+    end
+  end
 end
