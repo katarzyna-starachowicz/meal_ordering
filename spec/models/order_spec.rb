@@ -57,4 +57,27 @@ describe Order do
       end
     end
   end
+
+  describe '#deleted?' do
+    let(:order) do
+      described_class.create!(
+        restaurant_link: 'http://kfc.pl/',
+        restaurant_name: 'kfc',
+        status: 'booking'
+      )
+    end
+
+    context 'when order was not deleted' do
+      it 'returns false' do
+        expect(order.deleted?).to be false
+      end
+    end
+
+    context 'when order was soft deleted' do
+      before { order.update!(deleted_at: Time.now) }
+      it 'returns true' do
+        expect(order.deleted?).to be true
+      end
+    end
+  end
 end

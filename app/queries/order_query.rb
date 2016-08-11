@@ -1,10 +1,10 @@
 class OrderQuery
   def active
-    chronologically_ordered(Order.active)
+    chronologically_ordered(Order.includes(:meals).active)
   end
 
   def history
-    chronologically_ordered(Order.history)
+    chronologically_ordered(Order.includes(:meals).history)
   end
 
   private

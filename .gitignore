@@ -6,3 +6,4 @@ config/secrets.yml
 config/initializers/omniauth_env_var.rb
 
 .byebug_history
+.DS_Store

@@ -13,6 +13,10 @@ class Order < ActiveRecord::Base
   scope :deleted,     -> { where.not(deleted_at: nil) }
   scope :not_deleted, -> { where(deleted_at: nil) }
 
-  scope :active, ->  { where(status: 'booking').not_deleted }
+  scope :active,  -> { where(status: 'booking').not_deleted }
   scope :history, -> { where('status!=? OR deleted_at IS NOT NULL', 'booking') }
+
+  def deleted?
+    deleted_at != nil
+  end
 end

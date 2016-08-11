@@ -4,4 +4,5 @@ class Meal < ActiveRecord::Base
 
   validates :name,  presence: true
   validates :price, presence: true
+  validate { |meal| MealValidator.new(meal).validate }
 end

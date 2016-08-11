@@ -2,11 +2,20 @@
 %ul
   - @active_orders.each do |order|
     %li= link_to order.restaurant_name, order.restaurant_link, target: '_blank'
+    %ul
+      - order.meals.each do |meal|
+        %li #{meal.name} | #{meal.price}
+      %li= link_to 'order a meal for yourself', new_meal_path(order_id: order.id)
+
+
 
 %h3 History of orders
 %ul
   - @history_orders.each do |order|
     %li= link_to order.restaurant_name, order.restaurant_link, target: '_blank'
+    %ul
+      - order.meals do |meal|
+        %li #{meal.name} | #{meal.price}
 
 .new_order
   = link_to '...or create a new order', new_order_path

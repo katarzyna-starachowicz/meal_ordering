@@ -1,0 +1,16 @@
+%h2 Book a meal
+
+= render partial: 'shared/error_messages', locals: {item: @meal}
+
+= form_for(@meal) do |f|
+  = f.label :name
+  = f.text_field :name
+  %br
+  = f.label :price
+  = f.number_field :price
+  %br
+  = f.hidden_field :order_id, value: @order_id
+
+  = f.submit 'Create!'
+
+= link_to 'Back to the main page', orders_path

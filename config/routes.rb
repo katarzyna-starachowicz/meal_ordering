@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'sessions#new'
   resources :orders
+  resources :meals, only: [:new, :create]
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/logout' => 'sessions#destroy', as: :logout
 

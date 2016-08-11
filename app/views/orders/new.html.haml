@@ -9,7 +9,7 @@
   = f.label :restaurant_link
   = f.url_field :restaurant_link
   %br
-  f.label :status
+  = f.label :status
   = f.select(:status, options_for_select(Order::STATUS), selected: 'booking')
   %br
   = f.submit 'Create!'
